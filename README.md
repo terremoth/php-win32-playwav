@@ -18,4 +18,54 @@ Made by [Terremoth](https://github.com/terremoth/) with ⚡ & ❤
 
 See [demos/demo.php](demos/demo.php) for examples.
 
-![image](https://github.com/user-attachments/assets/79af50af-be2c-4de8-93a0-dd1980f1fa89)
+## Documentation
+
+### Play Sync
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Win32Sound\PlayWav;
+
+$sound = new PlayWav('test.wav');
+$sound->play();
+
+```
+
+### Play Async
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Win32Sound\PlayWav;
+
+$sound = new PlayWav('test.wav');
+$sound->async()->play();
+```
+
+### Loop the audio
+
+Also, you can "loop" and then, stop if you want.  
+__IMPORTANT__: `loop()` requires ``->async()`` at some point, in order to work due to Windows API:
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use Win32Sound\PlayWav;
+
+$sound = new PlayWav('test.wav');
+$sound->async()->loop()->play();
+
+// if the scripts ends it will "kill" the audio process,
+// so, to listen just put a sleep in order to test
+sleep(5); 
+
+// if you want to stop the looping audio, just:
+$sound->stop();
+```
