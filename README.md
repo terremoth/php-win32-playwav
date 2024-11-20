@@ -18,6 +18,11 @@ Made by [Terremoth](https://github.com/terremoth/) with ⚡ & ❤
 
 See [demos/demo.php](demos/demo.php) for examples.
 
+## Installation
+```sh
+composer require terremoth/php-win32-playwav
+```
+
 ## Documentation
 
 ### Play Sync
